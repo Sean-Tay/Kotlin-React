@@ -6,4 +6,5 @@ import org.sean_tay.kotlin_react.handlers.handlers
 
 fun main() {
     handlers().asServer(SunHttp(9000)).start()
+    println("Server is running")
 }
