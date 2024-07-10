@@ -13,6 +13,8 @@ dependencies {
     implementation(platform("org.http4k:http4k-bom:${findProperty("http4kVersion")}"))
     implementation("org.http4k:http4k-core")
 
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:${findProperty("jacksonVersion")}")
+
     testImplementation(kotlin("test"))
 
     testImplementation(platform("org.junit:junit-bom:${findProperty("junitVersion")}"))
