@@ -68,3 +68,5 @@ outTmp/
 kotlin-ide/
 .kotlin/
 .teamcity/
+
+src/main/resources/public
