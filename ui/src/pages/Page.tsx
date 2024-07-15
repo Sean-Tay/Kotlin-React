@@ -6,9 +6,11 @@ import { TransportContext } from '../transports/TransportProvider'
 export function Page() {
   const { serverSystemTransport } = useContext(TransportContext)
 
-  const [ config, setConfig ] = useState<string>('')
+  const [config, setConfig] = useState<string>('')
   useEffect(() => {
-    serverSystemTransport?.getSystemConfig()?.then((config) => setConfig(JSON.stringify(config)))
+    serverSystemTransport
+      ?.getSystemConfig()
+      ?.then((config) => setConfig(JSON.stringify(config)))
   }, [])
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +27,7 @@ export function Page() {
   return (
     <>
       <div className="card">
-        <Input value={config} onChange={onChange} onPressEnter={onPressEnter}/>
+        <Input value={config} onChange={onChange} onPressEnter={onPressEnter} />
       </div>
     </>
   )

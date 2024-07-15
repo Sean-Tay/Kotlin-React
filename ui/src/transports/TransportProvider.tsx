@@ -7,24 +7,29 @@ type TransportContextState = {
   serverSystemTransport: ServerSystemTransport
 }
 
-export const TransportContext = createContext<TransportContextState>({ initialized: false } as TransportContextState)
+export const TransportContext = createContext<TransportContextState>({
+  initialized: false,
+} as TransportContextState)
 
 export const TransportProvider = ({ children }: PropsWithChildren) => {
-  const [ transportContextState, setTransportContextState ] = useState<TransportContextState>({ initialized: false } as TransportContextState)
+  const [transportContextState, setTransportContextState] =
+    useState<TransportContextState>({
+      initialized: false,
+    } as TransportContextState)
 
   useEffect(() => {
     setTransportContextState({
       initialized: true,
 
-      serverSystemTransport: new ServerSystemTransport()
+      serverSystemTransport: new ServerSystemTransport(),
     })
   }, [])
 
-  return <TransportContext.Provider
-    value={transportContextState}
-  >
-    { transportContextState.initialized ? children : null }
-  </TransportContext.Provider>
+  return (
+    <TransportContext.Provider value={transportContextState}>
+      {transportContextState.initialized ? children : null}
+    </TransportContext.Provider>
+  )
 }
 
 export default TransportProvider

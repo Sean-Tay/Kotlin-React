@@ -2,7 +2,7 @@
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types", "./node_modules/@testing-library"],
-    "types": ["jest-dom"],
+    "types": ["jest-dom"]
   },
   "include": ["src"],
   "exclude": ["tests"]

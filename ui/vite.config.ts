@@ -14,14 +14,14 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
         ws: true,
-        rewrite: (path) => path.replace(/^\/api/, 'http://localhost:9000/api')
+        rewrite: (path) => path.replace(/^\/api/, 'http://localhost:9000/api'),
       },
-    }
+    },
   },
 
   test: {
     typecheck: {
-      tsconfig: './tsconfig.vitest.json'
+      tsconfig: './tsconfig.vitest.json',
     },
 
     globals: true,
@@ -29,19 +29,15 @@ export default defineConfig({
     globalSetup: './tests/globalSetupFile.js',
     setupFiles: './tests/setupTestFile.js',
 
-    reporters: [
-      'junit',
-    ],
+    reporters: ['junit'],
     outputFile: {
-      'junit': './reports/test/junit.xml',
+      junit: './reports/test/junit.xml',
     },
 
     coverage: {
       provider: 'istanbul',
-      reporter: [
-        'cobertura'
-      ],
-      'reportsDirectory': './reports/coverage'
+      reporter: ['cobertura'],
+      reportsDirectory: './reports/coverage',
     },
-  }
+  },
 })
